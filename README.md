@@ -23,4 +23,19 @@ Existem duas abordagens:
 
 Os passos seguintes, mostram como configurar tudo do zero!
 
-1. Vá até https://drive.google.com/
+1. Vá até https://drive.google.com/ e crie um novo documento conforme imagem a seguir.
+2. ![image](https://user-images.githubusercontent.com/5191469/123519411-8971e480-d681-11eb-9955-26dcefd0b3fd.png)
+3. Dê um nome ao seu documento :).
+4. Vá no menu `Ferramenta` e clique em `Editor de Scripts`.
+5. ![image](https://user-images.githubusercontent.com/5191469/123519490-e2da1380-d681-11eb-9676-3b8c61fd1afd.png)
+6. O Google irá abrir uma tela, dê um nome para o seu projeto de scripts.
+7. ![image](https://user-images.githubusercontent.com/5191469/123519531-351b3480-d682-11eb-886d-dbc5a764fcd4.png)
+8. Apague todo o conteúdo do arquivo `Code.gs`.
+9. Copie **TODO** o **nosso** [`Code.gs`](Code.gs) e cole no seu `Code.gs`.
+10. ![image](https://user-images.githubusercontent.com/5191469/123519600-bb377b00-d682-11eb-80d0-cc4d5731e92b.png)
+11. Adicione um novo arquivo no seu projeto de scripts, com o nome `Actions`.
+12. Copie **TODO** o **nosso** [`Actions.gs`](Actions.gs) e cole no arquivo que você acabou de criar. 
+13. ![image](https://user-images.githubusercontent.com/5191469/123519675-3305a580-d683-11eb-9188-54a5c1fe07d7.png)
+14. Clique no icone de salvar (icone de um pequeno disquete) e pronto você está pronto para sair usando!!! As próximas sessões vão te ajudar a configurar sua planilha.
+
+
