@@ -10,7 +10,7 @@ Qualquer pessoa que forneça serviço para outras pessoas, e precisa de uma prat
 * Uma conta gmail.
 
 ## Como ele funciona?
-Ele é totalmente orientado ao seu Google Calendar, ou seja, você precisa criar eventos no seu calendário. Uma rotina é executada diariamente, para recuperar os eventos do calendário e adicionar eles na planilha.
+Ele é totalmente orientado ao seu Google Calendar, ou seja, você precisa criar eventos no seu calendário para cada pessoa que você presta um serviço. Uma rotina é executada diariamente, para recuperar os eventos do calendário e adicionar eles na planilha.
 
 ## Quais permissões o script vai precisar?
 |Recurso|Descrição|
