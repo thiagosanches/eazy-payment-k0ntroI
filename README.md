@@ -101,7 +101,10 @@ Define o gatilho da seguinte forma:
 
 ![image](https://user-images.githubusercontent.com/5191469/123521059-b080e400-d68a-11eb-8618-b1bd6e8bdc65.png)
 
-É obrigatório a seleção da função `getCalendarEvents`, pois conforme sugestão da imagem, essa função irá alimentar sua planilha principal todo dia as 12h AM, clique no botão salvar.
+É obrigatório a seleção da função `getCalendarEvents`, pois conforme sugestão da imagem, essa função irá alimentar sua planilha principal todo dia as 12h AM, clique no botão salvar. Uma tela perguntando por autorização será exibida, você deve aceitar conforme imagem:
+
+![image](https://user-images.githubusercontent.com/5191469/123521242-ce027d80-d68b-11eb-8110-ac5ce2b63958.png)
+
 
 
 ## TODOs
