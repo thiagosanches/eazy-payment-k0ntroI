@@ -19,7 +19,7 @@ function formatDate(date) {
     parameters.GOOGLE_DATE_FORMAT);
 }
 
-function getCalendarEvents() { 
+function getCalendarEvents() {
   var date = new Date();
   date.setDate(date.getDate() - parameters.DIFF_DAYS);
 
@@ -158,7 +158,7 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
   var today = new Date();
 
   //your info block
-  body.replaceText("{{my_name}}", parameters.MY_NAME); 
+  body.replaceText("{{my_name}}", parameters.MY_NAME);
   body.replaceText("{{my_personal_info_1}}", parameters.MY_PERSONAL_INFO_1);
   body.replaceText("{{my_personal_info_2}}", parameters.MY_PERSONAL_INFO_2);
   body.replaceText("{{my_personal_info_3}}", parameters.MY_PERSONAL_INFO_3);
