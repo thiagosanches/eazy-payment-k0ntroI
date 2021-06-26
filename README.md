@@ -39,6 +39,7 @@ Os passos seguintes, mostram como configurar tudo do zero!
 14. Clique no icone de salvar (icone de um pequeno disquete) e pronto você está pronto para sair usando!!! As próximas sessões vão te ajudar a configurar sua planilha.
 
 ## Configuração do seu Google Spreadsheet
+Os valores aprensentados a seguir são apenas de exemplos e não representam valores reais.
 
 ### Item obrigatório
 Você precisa criar uma planilha com o nome de `parameters`. Nesta planilha, você irá colocar todas as suas informações. Abaixo segue um exemplo, ela precisa usar os mesmos nomes da coluna da esquerda (`CHAVE`).
