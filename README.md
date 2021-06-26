@@ -18,7 +18,7 @@ Google Drive|O script precisa ler e escrever em seu Google Drive, para conseguir
 ## Como posso fazer para já sair usando?
 
 Existem duas abordagens:
-1. Fazer uma cópia deste [documento](link) e pronto, se você precisar ajustar algo, olhe nas sessões de personalização.
+1. Fazer uma cópia deste [documento](link) e pronto, se você precisar ajustar algo, olhe na sessão de [personalização](link).
 2. Configurar tudo do zero.
 
 Os passos seguintes, mostram como configurar tudo do zero!
@@ -88,6 +88,9 @@ Aqui a mágica acontece! Você precisa criar um evento no seu Google Calendar, u
 
 Pronto, a rotina que irá rodar diariamente vai:
 * Verificar que você tem um evento com o nome Ana, e se existir no seu registro de pessoas, irá adicionar uma entrada na planilha principal junto com o valor.
+
+## Personalização
+Aqui vai como personalizar.
 
 ## TODOs
 Lista de items a serem implementados.
