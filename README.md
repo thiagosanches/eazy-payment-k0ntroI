@@ -98,9 +98,10 @@ Cliquei no ícone de relógio que fica do lado esquerdo no Google Script Editor 
 ![image](https://user-images.githubusercontent.com/5191469/123521001-508a3d80-d68a-11eb-84d6-c47d1a9f5f9c.png)
 
 Define o gatilho da seguinte forma:
+
 ![image](https://user-images.githubusercontent.com/5191469/123521059-b080e400-d68a-11eb-8618-b1bd6e8bdc65.png)
 
-É obrigatório a seleção da função `getCalendarEvents`, pois conforme sugestão da imagem, essa função irá alimentar sua planilha principal todo dia as 12h AM.
+É obrigatório a seleção da função `getCalendarEvents`, pois conforme sugestão da imagem, essa função irá alimentar sua planilha principal todo dia as 12h AM, clique no botão salvar.
 
 
 ## TODOs
