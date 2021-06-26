@@ -4,7 +4,7 @@
 Um pequeno conjunto de scripts que irá ajudar você a gerenciar seus débitos e recibos de forma bem prática! Para mais informações veja o video [aqui](link).
 
 ## Quem pode usar?
-Qualquer pessoa que forneça serviço para outras pessoas, e precisa de uma praticidade para controlar os débitos e gerar recibos para seus clientes. Se você é um psicólogo, professor de guitarra ou alguma ocupação que se encaixe nesse cenário, este programa pode te ajudar, com **CUSTO ZERO***!!!
+Qualquer pessoa que forneça serviço para outras pessoas, e precisa de uma praticidade para controlar os débitos e gerar recibos para seus clientes. Se você é um psicólogo, professor de guitarra ou alguma ocupação que se encaixe nesse cenário, este programa pode te ajudar, com **CUSTO ZERO**!!!
 
 ## O que eu preciso?
 * Uma conta gmail.
