@@ -38,7 +38,7 @@ function getCalendarEvents() {
     events[i].getStartTime(),
     events[i].getEndTime()];
 
-    if (allPeople.indexOf(events[i].getTitle()) > 0)
+    if (allPeople.indexOf(events[i].getTitle()) >= 0)
       sheet.appendRow(data);
   }
 }
