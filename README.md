@@ -93,7 +93,15 @@ Pronto, a rotina que irá rodar diariamente vai:
 * Verificar que você tem um evento com o nome Ana, e se existir no seu registro de pessoas, irá adicionar uma entrada na planilha principal junto com o valor.
 
 ## Personalização
-Aqui vai como personalizar.
+Para que o programa consiga alimentar de forma automática a sua planilha principal, você deve configurar um recurso da seguinte forma:
+Cliquei no ícone de relógio que fica do lado esquerdo no Google Script Editor e logo em seguida clique no botão azul do lado inferior direito.
+![image](https://user-images.githubusercontent.com/5191469/123521001-508a3d80-d68a-11eb-84d6-c47d1a9f5f9c.png)
+
+Define o gatilho da seguinte forma:
+![image](https://user-images.githubusercontent.com/5191469/123521059-b080e400-d68a-11eb-8618-b1bd6e8bdc65.png)
+
+É obrigatório a seleção da função `getCalendarEvents`, pois conforme sugestão da imagem, essa função irá alimentar sua planilha principal todo dia as 12h AM.
+
 
 ## TODOs
 Lista de items a serem implementados.
