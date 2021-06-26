@@ -17,5 +17,8 @@ Google Drive|O script precisa ler e escrever em seu Google Drive, para conseguir
 
 ## Como posso fazer para já sair usando?
 
-Siga os seguintes passos:
+Existem duas abordagens:
+1. Fazer uma cópia deste [documento](link).
+2. Configurar tudo do zero.
 
+Os passos seguintes, mostram como configurar tudo do zero!
