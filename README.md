@@ -25,7 +25,7 @@ Os passos seguintes, mostram como configurar tudo do zero!
 
 1. Vá até https://drive.google.com/ e crie um novo documento conforme imagem a seguir.
 2. ![image](https://user-images.githubusercontent.com/5191469/123519411-8971e480-d681-11eb-9955-26dcefd0b3fd.png)
-3. Dê um nome ao seu documento :).
+3. Dê um nome bonito para o seu documento :)
 4. Vá no menu `Ferramenta` e clique em `Editor de Scripts`.
 5. ![image](https://user-images.githubusercontent.com/5191469/123519490-e2da1380-d681-11eb-9676-3b8c61fd1afd.png)
 6. O Google irá abrir uma tela, dê um nome para o seu projeto de scripts.
@@ -38,4 +38,23 @@ Os passos seguintes, mostram como configurar tudo do zero!
 13. ![image](https://user-images.githubusercontent.com/5191469/123519675-3305a580-d683-11eb-9188-54a5c1fe07d7.png)
 14. Clique no icone de salvar (icone de um pequeno disquete) e pronto você está pronto para sair usando!!! As próximas sessões vão te ajudar a configurar sua planilha.
 
+## Configuração do seu Google Spreadsheet
 
+### Item obrigatório
+Você precisa criar uma planilha com o nome de `parameters`. Nesta planilha, você irá colocar todas as suas informações. Abaixo segue um exemplo, ela precisa usar os mesmos nomes da coluna da esquerda (`CHAVE`).
+|CHAVE|VALOR|
+---|---
+MY_NAME|	David Gilmour
+MY_PERSONAL_INFO_1|	https://www.davidgilmour.com/
+MY_PERSONAL_INFO_2|	https://www.instagram.com/davidgilmour/
+MY_PERSONAL_INFO_3|	Bandstores.co.uk, 1 Brook Street, Whetstone
+MY_PERSONAL_INFO_4|	Leicester LE8 6LA, United Kingdom
+GOOGLE_SHEET_MAIN|	contas-receber
+GOOGLE_SHEET_NAME_PEOPLE|	cadastro-cliente
+GOOGLE_CALENDAR_ID|	908123098120938123@group.calendar.google.com
+GOOGLE_DOCS_RECEPIT_TEMPLATE_ID|	910283iujasdho9123kl123098
+GOOGLE_DATE_FORMAT|	dd/MM/yyyy
+GOOGLE_DATE_REGION|	America/Sao_Paulo
+DIFF_DAYS|	1
+DEBIT_MESSAGE |	`Olá {{name}}, temos {{n}} sessão(ões) em aberto:<br/><br/>{{formatted_days}}<br/> Totalizando R$ {{total_value}}.<br/>😘 Me paga logo por favor!!!`
+MONTHS|	`['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']`
