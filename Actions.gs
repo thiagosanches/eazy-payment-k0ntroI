@@ -19,11 +19,11 @@ function formatDate(date) {
     parameters.GOOGLE_DATE_FORMAT);
 }
 
-function getCalendarEvents() {
+function getCalendarEvents() { 
   var date = new Date();
   date.setDate(date.getDate() - parameters.DIFF_DAYS);
 
-  //YEAR/MONTH/DAY
+  //YEAR/MONTH/DAY 
   var calendarStartDate = date.getFullYear() + "/" + MONTH[date.getMonth()] + "/" + date.getDate() + " 00:00:00 UTC";
   var calendarEndDate = date.getFullYear() + "/" + MONTH[date.getMonth()] + "/" + date.getDate() + " 23:59:59 UTC";
   Logger.log("Considering the following date: " + calendarStartDate);
@@ -32,14 +32,16 @@ function getCalendarEvents() {
   var events = cal.getEvents(new Date(calendarStartDate), new Date(calendarEndDate));
   var sheet = SpreadsheetApp.getActive().getSheetByName(parameters.GOOGLE_SHEET_MAIN);
   var allPeople = getAllPeople();
-
   for (var i = 0; i < events.length; i++) {
-    var data = [events[i].getTitle(),
-    events[i].getStartTime(),
-    events[i].getEndTime()];
-
-    if (allPeople.indexOf(events[i].getTitle()) >= 0)
+    if (allPeople.findIndex(t => t.name.trim() === events[i].getTitle().trim()) >= 0) {
+      var data = [
+        events[i].getTitle(),
+        events[i].getStartTime(),
+        events[i].getEndTime(),
+        allPeople[allPeople.findIndex(t => t.name.trim() === events[i].getTitle().trim())].value
+      ];
       sheet.appendRow(data);
+    }
   }
 }
 
@@ -105,8 +107,7 @@ function getPeopleReceipts() {
   var result = getPeopleDataByStatusColumn(PAYMENT_STATUS_OK);
 
   if (result.totalValue > 0) {
-    var pdfURL = getPDFforReceipt(result.peopleName,
-      result.peoplePersonalInfo1,
+    var pdfURL = getPDFforReceipt(result,
       result.totalValue,
       result.totalNumberDays,
       result.totalFormattedDays)
@@ -134,16 +135,19 @@ function getAllPeople() {
   Logger.log("Getting all people.")
   for (var i = 1; i < range.length; i++) {
     if (range[i][INDEX_COLUMN_NAME].toString().trim() !== "") {
-      allPeople.push(range[i][INDEX_COLUMN_NAME].toString().trim());
+      allPeople.push({
+        name: range[i][INDEX_COLUMN_NAME].toString().trim(),
+        value: range[i][1],
+      });
     }
   }
   Logger.log(allPeople);
   return allPeople;
 }
 
-function getPDFforReceipt(peopleName, peoplePersonalInfo1, totalValue, totalDays, totalFormattedDays) {
+function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDays) {
   var parameters = initParameters();
-  var fileName = formatDate(new Date()) + "-" + peopleName + "-receipt";
+  var fileName = formatDate(new Date()) + "-" + peopleObject.peopleName + "-receipt";
   var newReceiptDocumentId = DriveApp.getFileById(parameters.GOOGLE_DOCS_RECEPIT_TEMPLATE_ID)
     .makeCopy(fileName).getId();
 
@@ -154,7 +158,7 @@ function getPDFforReceipt(peopleName, peoplePersonalInfo1, totalValue, totalDays
   var today = new Date();
 
   //your info block
-  body.replaceText("{{my_name}}", parameters.MY_NAME);
+  body.replaceText("{{my_name}}", parameters.MY_NAME); 
   body.replaceText("{{my_personal_info_1}}", parameters.MY_PERSONAL_INFO_1);
   body.replaceText("{{my_personal_info_2}}", parameters.MY_PERSONAL_INFO_2);
   body.replaceText("{{my_personal_info_3}}", parameters.MY_PERSONAL_INFO_3);
@@ -162,8 +166,8 @@ function getPDFforReceipt(peopleName, peoplePersonalInfo1, totalValue, totalDays
   body.replaceText("{{my_personal_info_5}}", parameters.MY_PERSONAL_INFO_5);
 
   //people's info block
-  body.replaceText("{{name}}", peopleName);
-  body.replaceText("{{people_personal_info_1}}", peoplePersonalInfo1)
+  body.replaceText("{{name}}", peopleObject.peopleName);
+  //body.replaceText("{{people_personal_info_1}}", peopleObject.peoplePersonalInfo1)
   body.replaceText("{{total_days}}", totalDays)
   body.replaceText("{{total_formatted_days}}", totalFormattedDays)
   body.replaceText("{{total_value}}", totalValue);
