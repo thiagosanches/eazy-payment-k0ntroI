@@ -83,7 +83,12 @@ Ou seja, pense nessa planilha como o cadastro das pessoas que você atende e o p
 
 ### Configuração no Google Calendar
 
-Aqui a máquina acontece, você precisa criar um evento no seu Google Calendar, usando apenas o nome da pessoa. Por exemplo:
-
+Aqui a mágica acontece! Você precisa criar um evento no seu Google Calendar, usando apenas o nome da pessoa. Por exemplo:
 ![image](https://user-images.githubusercontent.com/5191469/123520368-bc6aa700-d686-11eb-8ab1-0d7c18cd0457.png)
+
+Pronto, a rotina que irá rodar diariamente vai:
+* Verificar que você tem um evento com o nome Ana, e se existir no seu registro de pessoas, irá adicionar uma entrada na planilha principal junto com o valor.
+
+## TODOs
+Lista de items a serem implementados.
 
