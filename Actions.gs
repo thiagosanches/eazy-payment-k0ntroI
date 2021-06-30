@@ -19,6 +19,15 @@ function formatDate(date) {
     parameters.GOOGLE_DATE_FORMAT);
 }
 
+function getPeopleIndex(array, peopleName) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].name.trim() === peopleName.trim()) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 function getCalendarEvents() {
   var date = new Date();
   date.setDate(date.getDate() - parameters.DIFF_DAYS);
@@ -33,12 +42,13 @@ function getCalendarEvents() {
   var sheet = SpreadsheetApp.getActive().getSheetByName(parameters.GOOGLE_SHEET_MAIN);
   var allPeople = getAllPeople();
   for (var i = 0; i < events.length; i++) {
-    if (allPeople.findIndex(t => t.name.trim() === events[i].getTitle().trim()) >= 0) {
+    const index = getPeopleIndex(events, events[i].getTitle())
+    if (index >= 0) {
       var data = [
         events[i].getTitle(),
         events[i].getStartTime(),
         events[i].getEndTime(),
-        allPeople[allPeople.findIndex(t => t.name.trim() === events[i].getTitle().trim())].value
+        allPeople[index].value
       ];
       sheet.appendRow(data);
     }
@@ -169,7 +179,7 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
   body.replaceText("{{name}}", peopleObject.peopleName);
   //body.replaceText("{{people_personal_info_1}}", peopleObject.peoplePersonalInfo1)
   body.replaceText("{{total_days}}", totalDays)
-  body.replaceText("{{total_formatted_days}}", totalFormattedDays)
+  body.replaceText("{{total_formatted_days}}", totalFormattedDays.replaceAll("</br>", ","))
   body.replaceText("{{total_value}}", totalValue);
 
   //today's date block
@@ -185,4 +195,3 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
   DriveApp.getFileById(newReceiptDocumentId).setTrashed(true);
   return folder.createFile(blob).getUrl();
 }
-
