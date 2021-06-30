@@ -195,3 +195,4 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
   DriveApp.getFileById(newReceiptDocumentId).setTrashed(true);
   return folder.createFile(blob).getUrl();
 }
+
