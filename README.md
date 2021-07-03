@@ -21,7 +21,7 @@ Google Drive|O script precisa ler e escrever em seu Google Drive, para conseguir
 ## Como posso fazer para já sair usando?
 
 Existem duas abordagens:
-1. Fazer uma cópia deste [documento](link) e pronto, se você precisar ajustar algo, olhe na sessão de [personalização](https://github.com/thiagosanches/eazy-payment-k0ntroI/blob/main/README.md#personaliza%C3%A7%C3%A3o).
+1. Fazer uma cópia deste [documento](https://docs.google.com/spreadsheets/d/1V0tXBxGwRb3Mz_M5PV7lJlYFqcJLSVUPvEIuFVwYjNY/edit?usp=sharing) e pronto, se você precisar ajustar algo, olhe na sessão de [personalização](https://github.com/thiagosanches/eazy-payment-k0ntroI/blob/main/README.md#personaliza%C3%A7%C3%A3o).
 2. Configurar tudo do zero.
 
 Os passos seguintes, mostram como configurar tudo do zero!
