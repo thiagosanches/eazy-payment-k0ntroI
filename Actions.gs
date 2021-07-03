@@ -42,7 +42,7 @@ function getCalendarEvents() {
   var sheet = SpreadsheetApp.getActive().getSheetByName(parameters.GOOGLE_SHEET_MAIN);
   var allPeople = getAllPeople();
   for (var i = 0; i < events.length; i++) {
-    const index = getPeopleIndex(events, events[i].getTitle())
+    const index = getPeopleIndex(allPeople, events[i].getTitle())
     if (index >= 0) {
       var data = [
         events[i].getTitle(),
