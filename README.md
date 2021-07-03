@@ -8,6 +8,7 @@ Qualquer pessoa que forneça serviço para outras pessoas, e precisa de uma prat
 
 ## O que eu preciso?
 * Uma conta gmail.
+* Conhecer um pouco de planilhas.
 
 ## Como ele funciona?
 Ele é totalmente orientado ao seu Google Calendar, ou seja, você precisa criar eventos no seu calendário para cada pessoa que você presta um serviço. Uma rotina é executada diariamente, para recuperar os eventos do calendário e adicionar eles na planilha.
