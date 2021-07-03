@@ -179,7 +179,9 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
   body.replaceText("{{name}}", peopleObject.peopleName);
   //body.replaceText("{{people_personal_info_1}}", peopleObject.peoplePersonalInfo1)
   body.replaceText("{{total_days}}", totalDays)
-  body.replaceText("{{total_formatted_days}}", totalFormattedDays.replaceAll("</br>", ","))
+
+  var totalFormmatedDaysNoHtml = totalFormattedDays.replace(/<br\/>/gm, ',')
+  body.replaceText("{{total_formatted_days}}", totalFormmatedDaysNoHtml.substring(0, totalFormmatedDaysNoHtml.length - 1))
   body.replaceText("{{total_value}}", totalValue);
 
   //today's date block
