@@ -30,8 +30,8 @@ Os passos seguintes, mostram como configurar tudo do zero!
 1. Vá até https://drive.google.com/ e crie um novo documento conforme imagem a seguir.
 ![](https://user-images.githubusercontent.com/5191469/123519411-8971e480-d681-11eb-9955-26dcefd0b3fd.png)
 2. Dê um nome bonito para o seu documento :)
-3. Vá no menu `Ferramenta` e clique em `Editor de Scripts`.
-![](https://user-images.githubusercontent.com/5191469/123519490-e2da1380-d681-11eb-9676-3b8c61fd1afd.png)
+3. Vá no menu `Extensões` e clique em `Apps Script`.
+![](https://user-images.githubusercontent.com/5191469/144149523-1f1cde07-5561-49aa-9801-ac51add1f2ca.png)
 4. O Google irá abrir uma tela, dê um nome para o seu projeto de scripts.
 ![](https://user-images.githubusercontent.com/5191469/123519531-351b3480-d682-11eb-886d-dbc5a764fcd4.png)
 5. Apague todo o conteúdo do arquivo `Code.gs`.
