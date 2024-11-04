@@ -1,5 +1,5 @@
 var GOOGLE_SHEET_PARAMETERS = 'parameters';
-var MONTH = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+var MONTH = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
 var parametersSheet = SpreadsheetApp.getActive().getSheetByName(GOOGLE_SHEET_PARAMETERS);
 var parametersRange = parametersSheet.getDataRange().getValues();
@@ -7,7 +7,7 @@ var parameters = initParameters();
 
 function initParameters() {
   var parameters = {}
-  for (var i = 0; i < parametersRange.length; i++) {
+  for (let i = 0; i < parametersRange.length; i++) {
     parameters[parametersRange[i][0]] = parametersRange[i][1];
   }
   return parameters;
@@ -20,7 +20,7 @@ function formatDate(date) {
 }
 
 function getPeopleIndex(array, peopleName) {
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i].name.trim() === peopleName.trim()) {
       return i;
     }
@@ -28,21 +28,54 @@ function getPeopleIndex(array, peopleName) {
   return -1;
 }
 
-function getCalendarEvents() {
+// This function can be called manually, allowing the user to select the start and end dates to rebuild the spreadsheet.
+function getCalendarEventsManual() {
+  var calendarStartDate = SpreadsheetApp.getUi().prompt("Type a Start Date - Use the following format 2024/12/31");
+  var calendarEndDate = SpreadsheetApp.getUi().prompt("Type a End Date - Use the following format 2024/12/31");
+  
+  const startDate = calendarStartDate.getResponseText();
+  const endDate = calendarEndDate.getResponseText();
+
+  Logger.log(startDate);
+  Logger.log(endDate);
+
+  if (calendarStartDate.getResponseText().trim() !== "" &&
+    calendarEndDate.getResponseText().trim() !== "")
+    getCalendarEvents(startDate, endDate);
+  else {
+    var htmlOutput = HtmlService
+    .createHtmlOutput("É obrigatório informar os dois períodos (início e fim).")
+    .setWidth(350)
+    .setHeight(250);
+
+    SpreadsheetApp.getUi().showModalDialog(htmlOutput, "AVISO!");
+  }
+}
+
+// This function is triggered by the Google Trigger, so we need to look the specified day difference (parameter).
+function getCalendarEventsTrigger() {
   var date = new Date();
   date.setDate(date.getDate() - parameters.DIFF_DAYS);
+  Logger.log("GOOGLE_SHEET_PARAMETERS: " + GOOGLE_SHEET_PARAMETERS)
+  Logger.log("Using DIFF_DAYS as: " + parameters.DIFF_DAYS);
 
-  //YEAR/MONTH/DAY 
+  //YEAR/MONTH/DAY
   var calendarStartDate = date.getFullYear() + "/" + MONTH[date.getMonth()] + "/" + date.getDate() + " 00:00:00 UTC";
   var calendarEndDate = date.getFullYear() + "/" + MONTH[date.getMonth()] + "/" + date.getDate() + " 23:59:59 UTC";
-  Logger.log("Considering the following date: " + calendarStartDate);
+  getCalendarEvents(calendarStartDate, calendarEndDate);
+
+}
+
+function getCalendarEvents(calendarStartDate, calendarEndDate) {
+  Logger.log("Considering the following start date: " + calendarStartDate);
+  Logger.log("Considering the following end date..: " + calendarEndDate);
 
   var cal = CalendarApp.getCalendarById(parameters.GOOGLE_CALENDAR_ID);
   var events = cal.getEvents(new Date(calendarStartDate), new Date(calendarEndDate));
   var sheet = SpreadsheetApp.getActive().getSheetByName(parameters.GOOGLE_SHEET_MAIN);
   var allPeople = getAllPeople();
-  for (var i = 0; i < events.length; i++) {
-    const index = getPeopleIndex(allPeople, events[i].getTitle())
+  for (let i = 0; i < events.length; i++) {
+    var index = getPeopleIndex(allPeople, events[i].getTitle())
     if (index >= 0) {
       var data = [
         events[i].getTitle(),
@@ -76,13 +109,12 @@ function getPeopleDataByStatusColumn(filter) {
   var totalNumberDays = 0;
   var totalValue = 0;
 
-  for (var i = 0; i < fullRange.length; i++) {
+  for (let i = 0; i < fullRange.length; i++) {
 
     if (fullRange[i][INDEX_COLUMN_NAME].toString().trim() === peopleName &&
       (fullRange[i][INDEX_COLUMN_STATUS].toString().trim() === filter)) {
 
       var day = fullRange[i][INDEX_COLUMN_DATE].toString().trim();
-
       totalNumberDays += 1;
       totalFormattedDays += formatDate(new Date(day)) + "<br/>";
       totalValue += fullRange[i][INDEX_COLUMN_PRICE];
@@ -143,7 +175,7 @@ function getAllPeople() {
   var allPeople = [];
 
   Logger.log("Getting all people.")
-  for (var i = 1; i < range.length; i++) {
+  for (let i = 1; i < range.length; i++) {
     if (range[i][INDEX_COLUMN_NAME].toString().trim() !== "") {
       allPeople.push({
         name: range[i][INDEX_COLUMN_NAME].toString().trim(),
