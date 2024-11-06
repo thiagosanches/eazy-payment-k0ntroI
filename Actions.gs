@@ -32,7 +32,7 @@ function getPeopleIndex(array, peopleName) {
 function getCalendarEventsManual() {
   var calendarStartDate = SpreadsheetApp.getUi().prompt("Type a Start Date - Use the following format 2024/12/31");
   var calendarEndDate = SpreadsheetApp.getUi().prompt("Type a End Date - Use the following format 2024/12/31");
-  
+
   const startDate = calendarStartDate.getResponseText();
   const endDate = calendarEndDate.getResponseText();
 
@@ -44,9 +44,9 @@ function getCalendarEventsManual() {
     getCalendarEvents(startDate, endDate);
   else {
     var htmlOutput = HtmlService
-    .createHtmlOutput("É obrigatório informar os dois períodos (início e fim).")
-    .setWidth(350)
-    .setHeight(250);
+      .createHtmlOutput("É obrigatório informar os dois períodos (início e fim).")
+      .setWidth(350)
+      .setHeight(250);
 
     SpreadsheetApp.getUi().showModalDialog(htmlOutput, "AVISO!");
   }
@@ -102,6 +102,7 @@ function getPeopleDataByStatusColumn(filter) {
   var range = sheet.getActiveRange().getValues();
 
   var peopleName = range[0][INDEX_COLUMN_NAME].toString().trim();
+  lookupPerson = getAllPeople().find(i => i.name === peopleName);
   Logger.log("Selected people: " + peopleName);
   var fullRange = sheet.getDataRange().getValues();
 
@@ -123,6 +124,8 @@ function getPeopleDataByStatusColumn(filter) {
 
   return {
     peopleName: peopleName,
+    peoplePersonalInfo1: lookupPerson.peoplePersonalInfo1,
+    peoplePersonalInfo2: lookupPerson.peoplePersonalInfo2,
     totalNumberDays: totalNumberDays,
     totalFormattedDays: totalFormattedDays,
     totalValue: totalValue
@@ -180,6 +183,8 @@ function getAllPeople() {
       allPeople.push({
         name: range[i][INDEX_COLUMN_NAME].toString().trim(),
         value: range[i][1],
+        peoplePersonalInfo1: range[i][3].toString().trim(),
+        peoplePersonalInfo2: range[i][4].toString().trim(),
       });
     }
   }
@@ -209,7 +214,8 @@ function getPDFforReceipt(peopleObject, totalValue, totalDays, totalFormattedDay
 
   //people's info block
   body.replaceText("{{name}}", peopleObject.peopleName);
-  //body.replaceText("{{people_personal_info_1}}", peopleObject.peoplePersonalInfo1)
+  body.replaceText("{{people_personal_info_1}}", peopleObject.peoplePersonalInfo1)
+  body.replaceText("{{people_personal_info_2}}", peopleObject.peoplePersonalInfo2)
   body.replaceText("{{total_days}}", totalDays)
 
   var totalFormmatedDaysNoHtml = totalFormattedDays.replace(/<br\/>/gm, ',')
